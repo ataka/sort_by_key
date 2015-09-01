@@ -43,3 +43,30 @@ $ sort_by_key.rb TEMPLATE.txt DATA.txt
 /* No Key */
 ```
 
+## 使用例 ##
+
+```
+$ ./sort_by_key.rb template.txt sample.txt
+/* 名式非公式 */
+"Apple Pie" = "アップルバイ"
+"Banana Bread" = "バナナブレッド"
+/* 1.X 系 */
+"Cupcake" = "カップケーキ"
+"Donut" = "ドーナツ"
+/* 2.X 系 */
+"Eclair" = "エクレア"
+"Froyo" = "フローズンヨーグルト"
+"Gingerbread" = "ジンジャーブレッド"
+/* 3.X 系 */
+"Honeycomb" = "ハニカム"
+/* 4.X 系 */
+"Ice Cream Sandwich" = "アイスクリームサンドウィッチ"
+"Jelly Bean" = "ジェリービーン"
+"KitKat" = "キットカット"
+/* 5.X 系 */
+"Lollipop" = "ロリポップ"
+/* 6.X 系 */
+"Marshmallow" = "マシュマロ"
+/* No Key */
+"Original Sample Food" = "オリジナル・サンプル・フード"
+```
