@@ -3,7 +3,7 @@
 def load_data(data, hash)
   File.open(data, "r") { |f|
     f.each { |line|
-      kv = line.chomp.split("=",2).map(&:strip)
+      kv = line.split("=",2).map(&:strip)
       hash.store(kv[0], kv[1])
     }
   }
