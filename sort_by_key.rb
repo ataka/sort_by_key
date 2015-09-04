@@ -30,10 +30,28 @@ def print_no_keys(hash)
   }
 end
 
+# options
+def get_options()
+  if /--(?<option>.+)/ =~ ARGV[1]
+    if option == "new-key"
+      return 'newkey'
+    end
+  end
+  return false
+end
+
 def main()
+  option = get_options()
   hash = Hash.new()
-  load_data(ARGV[1],hash)
-  sort_by_keys(ARGV[0],hash)
+
+  arg = 0
+  arg += 1 if option != false
+  template = ARGV[arg]
+  arg += 1
+  data     = ARGV[arg]
+
+  load_data(data,hash)
+  sort_by_keys(template,hash)
   print_no_keys(hash)
 end
 
