@@ -9,16 +9,16 @@ def load_data(data, hash)
   }
 end
 
-def sort_by_keys(template,hash)
+def sort_by_keys(template,hash,options)
   File.open(template, "r") { |f|
     f.each { |line|
       if line[0] != "\""
-        print line
+        print line unless options == 'newkey'
         next
       end
 
       key = line.chomp
-      print key, " = ", hash[key], "\n"
+      print key, " = ", hash[key], "\n" unless options == 'newkey'
       hash.delete(key)
     }
   }
@@ -32,7 +32,7 @@ end
 
 # options
 def get_options()
-  if /--(?<option>.+)/ =~ ARGV[1]
+  if /--(?<option>.+)/ =~ ARGV[0]
     if option == "new-key"
       return 'newkey'
     end
@@ -41,17 +41,17 @@ def get_options()
 end
 
 def main()
-  option = get_options()
+  options = get_options()
   hash = Hash.new()
 
   arg = 0
-  arg += 1 if option != false
+  arg += 1 if options != false
   template = ARGV[arg]
   arg += 1
   data     = ARGV[arg]
 
   load_data(data,hash)
-  sort_by_keys(template,hash)
+  sort_by_keys(template,hash,options)
   print_no_keys(hash)
 end
 
