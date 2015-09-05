@@ -18,7 +18,7 @@ def sort_by_keys(template,hash,options)
       end
 
       key = line.chomp
-      print key, " = ", hash[key], "\n" unless options == 'newkey'
+      print str_key_value_pair(key, hash[key]) unless options == 'newkey'
       hash.delete(key)
     }
   }
@@ -26,8 +26,12 @@ end
 
 def print_no_keys(hash)
   hash.each { |key,value|
-    print key, " = ", value, "\n"
+    print str_key_value_pair(key, value)
   }
+end
+
+def str_key_value_pair(key,value)
+  return %(#{key} = #{value}\n)
 end
 
 # options
