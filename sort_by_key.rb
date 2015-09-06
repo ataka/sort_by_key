@@ -31,7 +31,7 @@ def print_no_keys(hash)
 end
 
 def str_key_value_pair(key,value)
-  return %(#{key} = #{value}\n)
+  return "" << key << ' = ' << value << "\n"
 end
 
 # options
