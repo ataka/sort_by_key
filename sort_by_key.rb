@@ -1,5 +1,10 @@
 #!/usr/bin/env ruby
 
+module Options
+  NONE   = 0
+  NEWKEY = (1 << 0)
+end
+
 def load_data(data, hash)
   File.open(data, "r") { |f|
     f.each { |line|
@@ -13,12 +18,12 @@ def sort_by_keys(template,hash,options)
   File.open(template, "r") { |f|
     f.each { |line|
       if line[0] != "\""
-        print line unless options == 'newkey'
+        print line unless (options & Options::NEWKEY) != Options::NONE
         next
       end
 
       key = line.chomp
-      print str_key_value_pair(key, hash[key]) unless options == 'newkey'
+      print str_key_value_pair(key, hash[key]) unless (options & Options::NEWKEY) != Options::NONE
       hash.delete(key)
     }
   }
@@ -36,12 +41,13 @@ end
 
 # options
 def get_options()
+  options = Options::NONE
   if /--(?<option>.+)/ =~ ARGV[0]
     if option == "new-key"
-      return 'newkey'
+      options |= Options::NEWKEY
     end
   end
-  return false
+  return options
 end
 
 def main()
@@ -49,7 +55,7 @@ def main()
   hash = Hash.new()
 
   arg = 0
-  arg += 1 if options != false
+  arg += 1 if options != Options::NONE
   template = ARGV[arg]
   arg += 1
   data     = ARGV[arg]
