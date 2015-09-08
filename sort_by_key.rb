@@ -18,12 +18,12 @@ def sort_by_keys(template,hash,options)
   File.open(template, "r") { |f|
     f.each { |line|
       if line[0] != "\""
-        print line unless (options & Options::NEWKEY) != Options::NONE
+        print line unless has_option(options, Options::NEWKEY)
         next
       end
 
       key = line.chomp
-      print str_key_value_pair(key, hash[key]) unless (options & Options::NEWKEY) != Options::NONE
+      print str_key_value_pair(key, hash[key]) unless has_option(options, Options::NEWKEY)
       hash.delete(key)
     }
   }
@@ -37,6 +37,10 @@ end
 
 def str_key_value_pair(key,value)
   return "" << key << ' = ' << value << "\n"
+end
+
+def has_option(options,option)
+  return (options & option) != Options::NONE
 end
 
 # options
