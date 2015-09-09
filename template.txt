@@ -1,21 +1,25 @@
-/* 名式非公式 */
-"Apple Pie"
-"Banana Bread"
-/* 1.X 系 */
-"Cupcake"
-"Donut"
-/* 2.X 系 */
-"Eclair"
-"Froyo"
-"Gingerbread"
-/* 3.X 系 */
-"Honeycomb"
-/* 4.X 系 */
-"Ice Cream Sandwich"
-"Jelly Bean"
-"KitKat"
-/* 5.X 系 */
-"Lollipop"
-/* 6.X 系 */
-"Marshmallow"
-/* No Key */
+/* Menu */
+"emacs"
+"file"
+"edit"
+"options"
+"tools"
+"help"
+
+/* Menu - Emacs */
+"about emacs"
+"preferences"
+"quit emacs"
+
+/* Menu - File */
+"visit new file"
+"open directory"
+"close"
+
+/* Menu - Edit */
+"undo"
+"cut"
+"copy"
+"paste"
+
+/* New keies */

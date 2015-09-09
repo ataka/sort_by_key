@@ -23,10 +23,10 @@ $ sort_by_key.rb TEMPLATE.txt DATA.txt
 データ・ファイルはキーとバリューを `=` で繋いだファイルです。並びはどんな順番でも構いません。
 
 ```c
-"Donut" = "ドーナツ"
-"Froyo" = "フローズンヨーグルト"
-"Eclair" = "エクレア"
-"KitKat" = "キットカット"
+"about emacs" = "この Emacs について"
+"close" = "閉じる"
+"copy" = "コピー"
+"cut" = "切り取り"
 ```
 
 ### テンプレート・ファイル ###
@@ -37,36 +37,48 @@ $ sort_by_key.rb TEMPLATE.txt DATA.txt
 - `"` で始まらない場合はコメントとして解釈されます
 
 ```c
-/* 名式非公式 */
-"Apple Pie"
-"Banana Bread"
-/* No Key */
+/* Menu */
+"emacs"
+"file"
+"edit"
+"options"
+"tools"
+"help"
+
+/* Menu - Emacs */
+"about emacs"
+"preferences"
+"quit emacs"
 ```
 
 ## 使用例 ##
 
 ```
 $ ./sort_by_key.rb template.txt sample.txt
-/* 名式非公式 */
-"Apple Pie" = "アップルバイ"
-"Banana Bread" = "バナナブレッド"
-/* 1.X 系 */
-"Cupcake" = "カップケーキ"
-"Donut" = "ドーナツ"
-/* 2.X 系 */
-"Eclair" = "エクレア"
-"Froyo" = "フローズンヨーグルト"
-"Gingerbread" = "ジンジャーブレッド"
-/* 3.X 系 */
-"Honeycomb" = "ハニカム"
-/* 4.X 系 */
-"Ice Cream Sandwich" = "アイスクリームサンドウィッチ"
-"Jelly Bean" = "ジェリービーン"
-"KitKat" = "キットカット"
-/* 5.X 系 */
-"Lollipop" = "ロリポップ"
-/* 6.X 系 */
-"Marshmallow" = "マシュマロ"
-/* No Key */
-"Original Sample Food" = "オリジナル・サンプル・フード"
+/* Menu */
+"emacs" = "Emacs"
+"file" = "ファイル"
+"edit" = "編集"
+"options" = "オプション"
+"tools" = "ツール"
+"help" = "ヘルプ"
+
+/* Menu - Emacs */
+"about emacs" = "この Emacs について"
+"preferences" = "設定"
+"quit emacs" = "Emacs を終了する"
+
+/* Menu - File */
+"visit new file" = "新しいファイルを開く"
+"open directory" = "ディレクトリーを開く"
+"close" = "閉じる"
+
+/* Menu - Edit */
+"undo" = "アンドゥ"
+"cut" = "切り取り"
+"copy" = "コピー"
+"paste" = "貼り付け"
+
+/* New keies */
+"unknown" = "Unknown New Key"
 ```
